@@ -37,6 +37,11 @@ public class Hotel implements ICrudCliente {
 
     @Override
     public boolean eliminarCliente(String dni) {
+        Cliente cliente = verificarCliente(dni);
+        if (cliente != null) {
+            clientes.remove(cliente);
+            return true;
+        }
 
         return false;
     }
@@ -48,7 +53,7 @@ public class Hotel implements ICrudCliente {
     }
 
     @Override
-    public Cliente getCliente(int id) {
+    public Cliente getCliente(String id) {
 
         return null;
     }
@@ -97,13 +102,33 @@ public class Hotel implements ICrudCliente {
     /**
      * Este método permite verificar si el numero de la habitacion ya existe
      */
-    private boolean verificarHabitacionExiste(String numero) {
+    public boolean verificarHabitacionExiste(String numero) {
         for (Habitacion habitacion : habitaciones) {
             if (habitacion.getNumero().equals(numero)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public Habitacion getHabitacion(String numero) {
+        for (Habitacion habitacion : habitaciones) {
+            if (habitacion.getNumero().equals(numero)) {
+                return habitacion;
+            }
+        }
+        return null;
+    }
+
+    public int calcularTotalClientes() {
+        int totalClientes = 0;
+
+        for (Habitacion habitacion : habitaciones) {
+            if(habitacion.getCliente() != null){
+                totalClientes++;
+            }
+        }
+        return totalClientes;
     }
 
 /**
@@ -115,11 +140,11 @@ public class Hotel implements ICrudCliente {
 
     @Override
     public String toString() {
-        return "EmpresaTransporte{ \n" +
+        return "Hotel{ \n" +
                 "nombre='" + nombre + '\'' +
-                ", \ngetClientes = " + getClientes().toString() +
-                ", \ngetHabitaciones = " + getHabitaciones().toString() +
-                ", \ngetReservas = " + getReservas().toString() +
+                ", \nClientes = " + getClientes().toString() +
+                ", \nHabitaciones = " + getHabitaciones().toString() +
+                ", \nReservas = " + getReservas().toString() +
                 '}';
     }
 

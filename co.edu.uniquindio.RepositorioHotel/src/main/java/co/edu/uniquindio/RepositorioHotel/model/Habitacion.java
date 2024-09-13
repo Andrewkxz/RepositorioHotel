@@ -66,7 +66,7 @@ public class Habitacion {
      */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
-        if(this.estado != null){
+        if(cliente != null){
             this.estado = Estado.OCUPADO;
         }
         else{
