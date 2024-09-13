@@ -1,4 +1,4 @@
-package co.edu.uniquindio.RepositorioHotel;
+package co.edu.uniquindio.RepositorioHotel.model;
 
 //enum para los tipos de habitación
 

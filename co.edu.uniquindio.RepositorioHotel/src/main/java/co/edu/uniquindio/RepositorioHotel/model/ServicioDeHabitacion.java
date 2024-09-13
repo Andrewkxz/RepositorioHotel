@@ -1,6 +1,7 @@
-package co.edu.uniquindio.RepositorioHotel;
-/*Creacion de la clase Servicio de habitacion la cual hereda de la clase Servicio e implementa dela interface Consumible*/
-public class ServicioDeHabitacion extends Servicio implements Consumible{
+package co.edu.uniquindio.RepositorioHotel.model;
+
+/*Creación de la clase Servicio de habitacion la cual hereda de la clase Servicio e implementa dela interface Consumible*/
+public class ServicioDeHabitacion extends Servicio implements Consumible {
     private Habitacion habitacion;
 
     @Override
